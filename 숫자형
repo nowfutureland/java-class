@@ -1,0 +1,13 @@
+package s21206_java20;
+
+public class Chap01 {
+
+	public static void main(String[] args) {
+		
+		Student s = new Student();
+		s.pub();	//public
+		s.pro();	//protected
+		s.def();	//default
+		//s.pri(); //private에러발생
+	}
+}
