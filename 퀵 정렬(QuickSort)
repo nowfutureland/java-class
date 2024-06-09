@@ -1,0 +1,58 @@
+package main;
+
+import java.util.Arrays;
+
+public class QuickSort {
+
+	public static void main(String[] args) {
+		
+        int[] arr = {5, 2, 1, 6, 4, 8, 3, 7, 9}; //정렬할 숫자
+        System.out.println("원본 배열: "+Arrays.toString(arr));
+        int n = arr.length; //배열 크기 선언
+        quickSort(arr,0,n-1); //배열 arr의 모든 대상
+        System.out.println(Arrays.toString(arr)); //배열 arr의 내용을 콘솔에 출력
+    }
+
+    public static void quickSort(int[] arr, int start, int end) {
+        int a = partition(arr, start, end); //a : 오른쪽 부터 시작점
+
+        //만약 start가 a-1과 같으면 정렬할 필요가 없기때문에 if문에서 설정
+        if(start < a - 1){
+            quickSort(arr, start, a-1);//end는 오른쪽 시작점에서 왼쪽으로 한칸
+        }
+        //만약 a의 시작점이 end와 같으면 정렬할 필요가 없기 때문에 if문에서 설정
+        if(a < end){
+            quickSort(arr, a, end);
+        }
+    }
+
+    public static int partition(int[] arr, int start, int end){
+        int m = (start + end)/2;
+        int pivot = arr[m]; // 해당 파티션의 중간에 있는 값
+
+        //start와 end가 엇갈릴때까지 반복
+        while(start <= end){
+
+            // start가 피봇보다 작으면 start++ (피봇보다 큰 값이 나올때까지 반복)
+            while(arr[start] < pivot)start++;
+
+            //end가 피봇보다 크면 end-- (피봇보다 작은 값이 나올때까지 반복)
+            while(arr[end] > pivot)end--;
+
+            //start와 end가 서로 엇갈리지 않았으면 swap
+            if(start <= end){
+                swap(arr,start,end); //QuickSort 알고리즘이 올바르게 작동하고, 배열이 정렬되기 위해
+                start++;
+                end--;
+            }
+        }
+
+        return start; //새로 나뉠 파티션의 첫번째 인덱스를 반환 (a)
+    }
+
+    public static void swap(int[] arr, int i, int j){
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }	
+}
