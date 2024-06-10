@@ -1,0 +1,83 @@
+package s21206_java04;
+
+import java.util.Scanner;
+
+public class S21206_Atm {
+	
+	static int bankAcount; //class value
+	int acount;			//instance value
+
+	public static void main(String[] args) {
+		// 참조 변수 -> 초기화 기본으로 된다
+		S21206_Atm a = new S21206_Atm();
+		S21206_Atm b = new S21206_Atm();
+		
+		do {
+			 Scanner scan = new Scanner(System.in);
+	         
+	         System.out.println("\r메뉴 선택 : 1.입금 2.출금 9.종료");
+	         int selectMenu = scan.nextInt();
+	         
+	         if (selectMenu == 9) {   //종료
+	            break;
+	         }
+	         if (selectMenu < 1 || selectMenu > 2) { //잘못된 입력
+	            continue;
+	         }
+	         //
+	         if (selectMenu == 1) {
+	            System.out.println("계좌선택 : 이전메뉴=0 A=1 B=2 종료=9");            
+	            int num = scan.nextInt();
+	            if (num == 0) {
+	               continue;
+	            }
+	            
+	            if (num == 9) {   //종료
+	               break;
+	            }
+	            
+	            if (num == 1) {
+	               System.out.print("금액 입력 : ");
+	               int money = scan.nextInt();
+	               a.acount += money;
+	               
+	               System.out.println("A잔액:" + a.acount + "총금액" + (a.acount + b.acount) + "\n" + "B잔액:" + b.acount + "총금액" + (a.acount + b.acount) + "\n" + "총금액:" + (a.acount + b.acount));
+	            } else if(num == 2) {
+	               System.out.print("금액 입력 : ");
+	               int money = scan.nextInt();
+	               b.acount += money;
+	               
+	               System.out.println("A잔액:" + a.acount + "총금액" + (a.acount + b.acount) + "\n" + "B잔액:" + b.acount + "총금액" + (a.acount + b.acount) + "\n" + "총금액:" + (a.acount + b.acount));
+	            }
+	         }
+	         
+	         if (selectMenu == 2) {
+	            System.out.println("\r 계좌선택 : 전메뉴=0 A=1 B=2 종료=9");            
+	            int num = scan.nextInt();
+	            if (num == 0) {
+	               continue;
+	            }
+	            
+	            if (num == 9) {   //종료
+	               break;
+	            }
+	            
+	            if (num == 1) {
+	               System.out.print("금액 입력 : ");
+	               int money = scan.nextInt();
+	               a.acount -= money;
+	               
+	               System.out.println("A잔액:" + a.acount + "총금액" + (a.acount + b.acount) + "\n" + "B잔액:" + b.acount + "총금액" + (a.acount + b.acount) + "\n" + "총금액:" + (a.acount + b.acount));
+	            } else if(num == 2) {
+	               System.out.print("금액 입력 : ");
+	               int money = scan.nextInt();
+	               b.acount -= money;
+	               
+	               System.out.println("A잔액:" + a.acount + "총금액" + (a.acount + b.acount) + "\n" + "B잔액:" + b.acount + "총금액" + (a.acount + b.acount) + "\n" + "총금액:" + (a.acount + b.acount));
+	            }
+	         }
+	         
+	      } while (true);
+		System.out.println("이용해 주셔서 고맙습니다^^");
+	   }
+}
