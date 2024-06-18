@@ -75,7 +75,7 @@ public class BaseBall {
 				if(usr[2]==com[1]) ball++;
 				
 				System.out.println("Strike: "+strike +" Ball: "+ball);
-		} while((strike < 33) && (count < 11));
+		} while((strike < 3) && (count < 11));
 		
 		return count;
 	}
