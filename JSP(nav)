@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>nav</title>
-    <link ref="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
